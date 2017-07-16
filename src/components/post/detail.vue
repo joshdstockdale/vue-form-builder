@@ -8,10 +8,13 @@
           <div class="subtitle">{{p.date}}</div>
         </div>
 
-        <div class="is-4-desktop is-12-tablet column tile">
-          <textarea class="is-12 column" :value="input" @input="update"></textarea>
+        <div class="column tile">
+          <quill-editor ref="myTextEditor"
+                v-model="input"
+                :options="editorOption">
+          </quill-editor>
+
         </div>
-        <div class="column" v-html="compiledMarkdown"></div>
     </div>
   </div>
 </template>
@@ -19,18 +22,36 @@
 <script>
   import marked from 'marked'
   import _ from 'lodash'
+  import { quillEditor } from 'vue-quill-editor'
 
   export default {
     name: 'detail',
-    props: ['posts', 'input'],
-    created: function () {
-      // this.input = this.
-    },
-    computed: {
-      compiledMarkdown: function () {
-          return marked(this.input, { sanitize: false })
+    data () {
+      return {
+        name: 'app',
+        content: '<h2>Example</h2>',
+        editorOption: {
+          modules: {
+            // toolbar: [
+            //   [{ header: [1, 2, false] }],
+            //   ['bold', 'italic', 'underline'],
+            //   ['image', 'code-block']
+            // ]
+          },
+          placeholder: 'Compose an epic...',
+          theme: 'snow'  // or 'bubble'
         }
+      }
     },
+    props: ['posts', 'input'],
+    components: {
+      quillEditor
+    },
+    // computed: {
+    //   compiledMarkdown: function () {
+    //       return marked(this.input, { sanitize: false })
+    //     }
+    // },
     methods: {
       update: _.debounce(function (e) {
         this.input = e.target.value
@@ -43,24 +64,8 @@
 @import "../../assets/sass/utilities/variables.sass";
 @import "../../assets/sass/utilities/mixins.sass";
 
-textarea
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-  border: none;
-  border-right: 1px solid #ccc;
-  outline: none;
-  background-color: #eee;
-  padding: 5px !important;
-  font-size: 0.95rem;
-  font-weight: 400;
-  font-family: 'Roboto Mono', monospace;
-  color: #363636;
-  height: 80vh
+.ql-editor
+  height: 100vh;
 
-  @include touch
-    height: 30vh
-code
-  color: #f66;
 
 </style>
