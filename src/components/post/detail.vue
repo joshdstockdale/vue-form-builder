@@ -67,5 +67,6 @@
 .ql-editor
   height: 100vh;
 
-
+html
+  overflow-y: hidden;
 </style>
