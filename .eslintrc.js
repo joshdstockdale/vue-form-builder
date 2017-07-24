@@ -42,6 +42,11 @@ module.exports = {
     'no-multi-spaces':0,
     'no-multiple-empty-lines':0,
     'space-infix-ops':0,
-    'semi': 0
+    'semi': 0,
+    'padded-blocks':0,
+    'spaced-comment':0,
+    'comma-spacing':0,
+    'arrow-spacing':0,
+    'comma-dangle':0,
   }
 }

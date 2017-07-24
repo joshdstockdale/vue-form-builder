@@ -1,6 +1,11 @@
-# vue-frontend
+# Work In Progress
 
-> A Vue.js project
+## A Vue.js admin panel.
+> Right now it pulls posts from WP into a quill.js wysiwyg, no saving capabilities yet.
+
+Currently in process of creating a form builder using SortableJS and icebob/vue-form-generator at http://localhost:8080/form/build.
+
+Also implementing Vuex for state management: https://vuex.vuejs.org
 
 ## Build Setup
 

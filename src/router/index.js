@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import Post from '@/components/Post'
 import Page from '@/components/Page'
+import Form from '@/components/Form'
 
 Vue.use(Router)
 
@@ -24,6 +25,18 @@ export default new Router({
       path: '/post/:slug',
       name: 'Post',
       component: Post,
+      props: true
+    },
+    {
+      path: '/forms',
+      name: 'Forms',
+      component: Form,
+      props: (route) => ({ sortby: route.query.sortby })
+    },
+    {
+      path: '/form/:slug',
+      name: 'Form',
+      component: Form,
       props: true
     },
     {
