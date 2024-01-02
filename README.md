@@ -1,5 +1,5 @@
 # Work In Progress
-An admin panel for managing content. Built using the Vue library with Bulma CSS Framework.
+A form builder using JSON Schema. Built using the Vue library with Bulma CSS Framework.
 
 ## A Vue.js admin panel.
 > Right now it pulls posts from WP into a quill.js wysiwyg, no saving capabilities yet.
